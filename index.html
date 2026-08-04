@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amin Abu Islaih — Strategic & Creative Portfolio</title>
+
+    <!-- Google Fonts: Playfair Display & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET & DESIGN SYSTEM --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: #000000;
+        }
+
+        :root {
+            --bg-dark: #000000;
+            --bg-card: #0a0a0c;
+            --border-editorial: rgba(255, 255, 255, 0.12);
+            --border-hover: rgba(255, 255, 255, 0.4);
+            --text-main: #f8f8f8;
+            --text-muted: #888888;
+            --accent-gold: #d4af37;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Montserrat', -apple-system, sans-serif;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- PRELOADER ANIMATION --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000000;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        #preloader.loaded { transform: translateY(-100%); }
+
+        .loader-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-style: italic;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInText 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+        }
+
+        .loader-bar {
+            width: 150px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: #ffffff;
+            animation: loadProgress 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s;
+        }
+
+        @keyframes fadeInText { to { opacity: 1; transform: translateY(0); } }
+        @keyframes loadProgress { to { width: 100%; } }
+
+        /* --- CUSTOM CURSOR --- */
+        #custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+            mix-blend-mode: difference;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #custom-cursor.hovered {
+            width: 70px;
+            height: 70px;
+            background-color: #ffffff;
+            mix-blend-mode: difference;
+        }
+
+        /* --- HEADER NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-editorial);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span { color: var(--accent-gold); }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        nav a:hover { color: #ffffff; }
+
+        /* --- HERO FULL-SCREEN PARALLAX --- */
+        #home {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: -10%;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            object-fit: cover;
+            opacity: 0.35;
+            filter: grayscale(100%) contrast(120%);
+            will-change: transform;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.95) 90%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3.2rem, 8vw, 6.5rem);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-content h1 i {
+            font-style: italic;
+            font-weight: 400;
+            color: #d1d1d1;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* --- FULL-SCREEN PARALLAX MOOD BANNER --- */
+        .parallax-mood-fullscreen {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid var(--border-editorial);
+            border-bottom: 1px solid var(--border-editorial);
+        }
+
+        .parallax-mood-img {
+            position: absolute;
+            top: -20%;
+            left: 0;
+            width: 100%;
+            height: 140%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(40%) contrast(130%);
+            will-change: transform;
+        }
+
+        .parallax-mood-overlay {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 2rem;
+            max-width: 1000px;
+        }
+
+        .parallax-mood-overlay h4 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-style: italic;
+            color: #ffffff;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        /* --- HORIZONTAL SCROLL ABOUT SECTION --- */
+        .horizontal-section-outer {
+            overflow: hidden;
+            position: relative;
+            border-top: 1px solid var(--border-editorial);
+            border-bottom: 1px solid var(--border-editorial);
+        }
+
+        .horizontal-scroll-container {
+            display: flex;
+            gap: 2.5rem;
+            padding: 6rem 2.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .horizontal-scroll-container::-webkit-scrollbar { display: none; }
+
+        .horizontal-card {
+            flex: 0 0 400px;
+            scroll-snap-align: start;
+            background: var(--bg-card);
+            border: 1px solid var(--border-editorial);
+            padding: 3.5rem 2.5rem;
+            transition: var(--transition);
+        }
+
+        .horizontal-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-8px);
+        }
+
+        .horizontal-card-num {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-style: italic;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .horizontal-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .horizontal-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- SECTIONS COMMON --- */
+        section {
+            padding: 8rem 2.5rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            margin-bottom: 5rem;
+            border-bottom: 1px solid var(--border-editorial);
+            padding-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        /* --- AGENCY BLOCK & MUSIC ANIMATION --- */
+        .agency-block {
+            margin-top: 6rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-editorial);
+            position: relative;
+        }
+
+        .agency-block:first-of-type {
+            margin-top: 2rem;
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .agency-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .agency-name {
+            font-family: var(--font-serif);
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -1px;
+        }
+
+        .agency-intro {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* MUSIC ACTIVE BADGE & EQUALIZER */
+        .music-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-editorial);
+            padding: 0.8rem 1.8rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .agency-block.music-playing .music-status-badge {
+            border-color: #1ed760;
+            color: #1ed760;
+            background: rgba(30, 215, 96, 0.1);
+        }
+
+        .eq-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 14px;
+        }
+
+        .eq-bar {
+            width: 3px;
+            background-color: currentColor;
+            border-radius: 2px;
+        }
+
+        .agency-block.music-playing .eq-bar {
+            animation: eqAnim 1.2s ease-in-out infinite alternate;
+        }
+
+        .agency-block.music-playing .eq-bar:nth-child(1) { height: 40%; animation-delay: 0.1s; }
+        .agency-block.music-playing .eq-bar:nth-child(2) { height: 100%; animation-delay: 0.3s; }
+        .agency-block.music-playing .eq-bar:nth-child(3) { height: 60%; animation-delay: 0.2s; }
+
+        @keyframes eqAnim {
+            0% { height: 20%; }
+            100% { height: 100%; }
+        }
+
+        /* EDITORIAL GRID & QUADRATE IMAGES (1/1) */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2.5rem;
+        }
+
+        .col-6 { grid-column: span 6; }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-editorial);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-8px);
+        }
+
+        /* FORMATO QUADRATO PREMIUM (1 / 1) */
+        .project-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.08);
+            filter: grayscale(0%);
+        }
+
+        .project-content {
+            padding: 2.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            flex: 1;
+        }
+
+        .project-metrics {
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-editorial);
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-value {
+            font-family: var(--font-sans);
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+            color: #ffffff;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-project-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--border-editorial);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition);
+        }
+
+        .btn-project-link:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* AGENCY BANNER */
+        .agency-summary-banner {
+            background: var(--bg-card);
+            border: 1px solid var(--border-editorial);
+            padding: 2.5rem;
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .agency-summary-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .agency-summary-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+        }
+
+        .agency-clients-list {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CONTACT */
+        #contact {
+            border-top: 1px solid var(--border-editorial);
+            text-align: center;
+            padding-bottom: 8rem;
+        }
+
+        .contact-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-editorial);
+            padding: 6rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .btn-contact {
+            display: inline-block;
+            margin-top: 2.5rem;
+            padding: 1.2rem 3.5rem;
+            background: #ffffff;
+            color: #000000;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-contact:hover {
+            background: var(--accent-gold);
+            color: #ffffff;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border-editorial);
+            padding: 2.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 992px) {
+            .col-6 { grid-column: span 12; }
+            #custom-cursor { display: none; }
+            body { cursor: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PRELOADER ANIMATION -->
+    <div id="preloader">
+        <div class="loader-title">Amin Abu Islaih</div>
+        <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+
+    <!-- CUSTOM CURSOR -->
+    <div id="custom-cursor"></div>
+
+    <!-- HEADER NAVIGATION -->
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="logo">Amin Abu Islaih<span>.</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO FULL-SCREEN PARALLAX SECTION -->
+    <section id="home">
+        <img class="hero-bg-image" id="heroBg" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=2000&q=90" alt="Abstract Hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">Selected Works 2025</span>
+            <h1>Digital & Brand <i>Strategist</i></h1>
+            <p>Crafting high-impact digital communication, brand identities, and scalable growth strategies for industry-leading clients.</p>
+        </div>
+    </section>
+
+    <!-- HORIZONTAL SCROLLING ABOUT SECTION -->
+    <div id="about" class="horizontal-section-outer">
+        <div class="horizontal-scroll-container">
+            <div class="horizontal-card">
+                <div class="horizontal-card-num">01.</div>
+                <h3>Social Media Management</h3>
+                <p>Strategic channel leadership, content creation, ADV performance campaigns aimed at fanbase building, community engagement, and advanced KPI reporting.</p>
+            </div>
+            <div class="horizontal-card">
+                <div class="horizontal-card-num">02.</div>
+                <h3>UX / UI & Content Strategy</h3>
+                <p>Design guidelines development, UX Writing, Benchmark Analysis, and omnichannel Tone of Voice definition for digital platforms and landing pages.</p>
+            </div>
+            <div class="horizontal-card">
+                <div class="horizontal-card-num">03.</div>
+                <h3>Brand Innovation & Identity</h3>
+                <p>Strategic brand positioning for competitive markets, Web3/NFT campaigns, internal communication plans, and digital funnels for corporate and non-profit.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FULL-SCREEN PARALLAX MOOD BANNER 1 -->
+    <div class="parallax-mood-fullscreen">
+        <img class="parallax-mood-img" src="https://images.pexels.com/photos/6485636/pexels-photo-6485636.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Mood Parallax 1">
+        <div class="parallax-mood-overlay">
+            <h4>"Transforming complex ideas into simple, elegant products."</h4>
+        </div>
+    </div>
+
+    <!-- FEATURED WORK SECTION -->
+    <section id="projects">
+        <div class="section-header reveal-on-scroll">
+            <div>
+                <span class="section-tag">Archive & Projects</span>
+                <h2 class="section-title">Selected Works</h2>
+            </div>
+        </div>
+
+        <!-- 1. CAPPELLI IDENTITY DESIGN -->
+        <div class="agency-block reveal-on-scroll" data-audio="audio-cappelli">
+            <audio id="audio-cappelli" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3"></audio>
+            
+            <div class="agency-header">
+                <div>
+                    <h3 class="agency-name">Cappelli Identity Design</h3>
+                    <p class="agency-intro">Big projects. Great clients.</p>
+                </div>
+                <div class="music-status-badge">
+                    <div class="eq-bars">
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                    </div>
+                    <span>Playing: "Looking for a Star"</span>
+                </div>
+            </div>
+
+            <div class="editorial-grid">
+                <!-- Cinecittà -->
+                <div class="project-card col-6">
+                    <div class="project-img">
+                        <img src="https://images.pexels.com/photos/30488847/pexels-photo-30488847.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Cinecittà Art Deco Cinema">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Cinecittà si Mostra</div>
+                        <div class="project-desc">Social Media Management, Content Creation, Advertising, and Reporting for Cinecittà. Managing an institutional tone of voice with rich news flows.</div>
+                        <div class="project-metrics">
+                            <div>
+                                <div class="metric-value">+109%</div>
+                                <div class="metric-label">New Followers</div>
+                            </div>
+                        </div>
+                        <a href="https://youtu.be/0-X3M7o924I" target="_blank" class="btn-project-link">
+                            <span>View Case Study</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RUFA -->
+                <div class="project-card col-6">
+                    <div class="project-img">
+                        <img src="https://images.pexels.com/photos/15437274/pexels-photo-15437274.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="RUFA Concrete Wall Architecture">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">RUFA - Fine Arts</div>
+                        <div class="project-desc">Communication for the Home of Design, Fashion, and Arts. Creative ADV strategies to reach new prospects.</div>
+                        <div class="project-metrics">
+                            <div>
+                                <div class="metric-value">+11%</div>
+                                <div class="metric-label">Students ADV</div>
+                            </div>
+                        </div>
+                        <a href="https://www.unirufa.it" target="_blank" class="btn-project-link">
+                            <span>Visit Website</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agency-summary-banner">
+                <div>
+                    <span class="agency-clients-list">Key Clients</span>
+                    <p style="color:#fff; font-weight:700; margin-top:0.3rem;">Cinecittà • MIC • Terna • RUFA</p>
+                </div>
+                <div>
+                    <div class="agency-summary-number">+109%</div>
+                    <div class="agency-summary-label">Amount of new followers gained on client Social Accounts</div>
+                </div>
+                <div>
+                    <div class="agency-summary-number">+11%</div>
+                    <div class="agency-summary-label">New RUFA’s students obtained from Digital ADV</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FULL-SCREEN PARALLAX MOOD BANNER 2 -->
+        <div class="parallax-mood-fullscreen">
+            <img class="parallax-mood-img" src="https://images.pexels.com/photos/11516461/pexels-photo-11516461.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Mood Parallax 2">
+            <div class="parallax-mood-overlay">
+                <h4>"Creating a strong storytelling framework to narrate Vision & Mission."</h4>
+            </div>
+        </div>
+
+        <!-- 2. JAKALA -->
+        <div class="agency-block reveal-on-scroll" data-audio="audio-jakala">
+            <audio id="audio-jakala" loop src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a303e3.mp3?filename=chill-abstract-intention-12099.mp3"></audio>
+
+            <div class="agency-header">
+                <div>
+                    <h3 class="agency-name">JAKALA</h3>
+                    <p class="agency-intro">Big stage. To lead.</p>
+                </div>
+                <div class="music-status-badge">
+                    <div class="eq-bars">
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                    </div>
+                    <span>Playing: "Feeling Good"</span>
+                </div>
+            </div>
+
+            <div class="editorial-grid">
+                <!-- Vodafone Business -->
+                <div class="project-card col-6">
+                    <div class="project-img">
+                        <img src="https://images.pexels.com/photos/15244865/pexels-photo-15244865.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Vodafone Business Abstract Lights">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Vodafone Business</div>
+                        <div class="project-desc">Developing design guidelines, evening UX and Tone of Voice used on copies across every line of communication.</div>
+                        <div class="project-metrics">
+                            <div>
+                                <div class="metric-value">+9%</div>
+                                <div class="metric-label">Email Conversion Rate</div>
+                            </div>
+                        </div>
+                        <a href="https://www.vodafone.it/business.html" target="_blank" class="btn-project-link">
+                            <span>Explore Project</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Lamborghini -->
+                <div class="project-card col-6">
+                    <div class="project-img">
+                        <img src="https://images.pexels.com/photos/35497785/pexels-photo-35497785.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Lamborghini V12 Engine">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Lamborghini</div>
+                        <div class="project-desc">Internal Communication plan for salesmen to share "Lamborghini Success", with high-end landing pages and digital brochures.</div>
+                        <div class="project-metrics">
+                            <div>
+                                <div class="metric-value">+12</div>
+                                <div class="metric-label">Customer Journeys</div>
+                            </div>
+                        </div>
+                        <a href="https://www.lamborghini.com" target="_blank" class="btn-project-link">
+                            <span>Discover Platform</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agency-summary-banner">
+                <div>
+                    <span class="agency-clients-list">Key Clients</span>
+                    <p style="color:#fff; font-weight:700; margin-top:0.3rem;">Vodafone Business • Loro Piana • Lamborghini</p>
+                </div>
+                <div>
+                    <div class="agency-summary-number">+12</div>
+                    <div class="agency-summary-label">Development of new customer acquisition journeys</div>
+                </div>
+                <div>
+                    <div class="agency-summary-number">+9%</div>
+                    <div class="agency-summary-label">OR, CTOR e CR on Vodafone Business email marketing</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. DST -->
+        <div class="agency-block reveal-on-scroll" data-audio="audio-dst">
+            <audio id="audio-dst" loop src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=ambient-piano-10781.mp3"></audio>
+
+            <div class="agency-header">
+                <div>
+                    <h3 class="agency-name">DST</h3>
+                    <p class="agency-intro">Tough. Trust the process.</p>
+                </div>
+                <div class="music-status-badge">
+                    <div class="eq-bars">
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                    </div>
+                    <span>Playing: "Still Don't Know My Name"</span>
+                </div>
+            </div>
+
+            <div class="editorial-grid">
+                <!-- Enel X Way -->
+                <div class="project-card col-6">
+                    <div class="project-img">
+                        <img src="https://images.pexels.com/photos/9799743/pexels-photo-9799743.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Enel X Way Electric Energy">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Enel X Way</div>
+                        <div class="project-desc">Brand Awareness & Digital Strategy for electric mobility. Storytelling framework for Vision, Mission & Pillars.</div>
+                        <div class="project-metrics">
+                            <div>
+                                <div class="metric-value">+122%</div>
+                                <div class="metric-label">Social Followers</div>
+                            </div>
+                        </div>
+                        <a href="https://www.enelxway.com" target="_blank" class="btn-project-link">
+                            <span>View Platform</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Telepass NFT (NUOVA IMMAGINE PEXELS 3D GEOMETRICA) -->
+                <div class="project-card col-6">
+                    <div class="project-img">
+                        <img src="https://images.pexels.com/photos/29474094/pexels-photo-29474094.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Telepass NFT 3D Abstract Pastel Shapes">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Telepass NFT Campaign</div>
+                        <div class="project-desc">NFT campaign focusing on innovation and diversification to renew a mature mobility brand in a competitive ecosystem.</div>
+                        <div class="project-metrics">
+                            <div>
+                                <div class="metric-value">+19%</div>
+                                <div class="metric-label">Users & Sessions</div>
+                            </div>
+                        </div>
+                        <a href="https://www.telepass.com" target="_blank" class="btn-project-link">
+                            <span>View Campaign</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agency-summary-banner">
+                <div>
+                    <span class="agency-clients-list">Key Clients</span>
+                    <p style="color:#fff; font-weight:700; margin-top:0.3rem;">Enel X • Telepass • Poste Italiane</p>
+                </div>
+                <div>
+                    <div class="agency-summary-number">+122%</div>
+                    <div class="agency-summary-label">Amount of new followers gained on client Social Accounts</div>
+                </div>
+                <div>
+                    <div class="agency-summary-number">+19%</div>
+                    <div class="agency-summary-label">New Users and Sessions on client websites and landing pages</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. LAV -->
+        <div class="agency-block reveal-on-scroll" data-audio="audio-lav">
+            <audio id="audio-lav" loop src="https://cdn.pixabay.com/download/audio/2022/02/07/audio_b2875f68b3.mp3?filename=soft-rain-ambient-111154.mp3"></audio>
+
+            <div class="agency-header">
+                <div>
+                    <h3 class="agency-name">LAV</h3>
+                    <p class="agency-intro">Non-profit. Skills.</p>
+                </div>
+                <div class="music-status-badge">
+                    <div class="eq-bars">
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                    </div>
+                    <span>Playing: "Heaven"</span>
+                </div>
+            </div>
+
+            <div class="editorial-grid">
+                <!-- LAV 1 -->
+                <div class="project-card col-6">
+                    <div class="project-img">
+                        <img src="https://images.pexels.com/photos/32361074/pexels-photo-32361074.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="LAV Elephant Wild Life">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Social Media Strategy</div>
+                        <div class="project-desc">LAV was the 1st association in Italy for fanbase growth. Strategy focused on ADV campaigns for fan building and organic viral impact.</div>
+                        <div class="project-metrics">
+                            <div>
+                                <div class="metric-value">+145%</div>
+                                <div class="metric-label">Users & Followers</div>
+                            </div>
+                        </div>
+                        <a href="https://www.lav.it" target="_blank" class="btn-project-link">
+                            <span>Visit Website</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- LAV 2 -->
+                <div class="project-card col-6">
+                    <div class="project-img">
+                        <img src="https://images.pexels.com/photos/28673261/pexels-photo-28673261.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="LAV Deer Forest Wildlife">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Web Content & Funnel Strategy</div>
+                        <div class="project-desc">Optimizing website assets for breaking news, petitions, and campaigns. Building a smooth donation flow for millions of users.</div>
+                        <div class="project-metrics">
+                            <div>
+                                <div class="metric-value">+78%</div>
+                                <div class="metric-label">Digital Income Growth</div>
+                            </div>
+                        </div>
+                        <a href="https://www.lav.it" target="_blank" class="btn-project-link">
+                            <span>Explore Campaigns</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agency-summary-banner">
+                <div>
+                    <div class="agency-summary-number">+145%</div>
+                    <div class="agency-summary-label">New Users and Followers on LAV's Social Media and Website</div>
+                </div>
+                <div>
+                    <div class="agency-summary-number">+78%</div>
+                    <div class="agency-summary-label">Income growth from digital channels (Social, ADV, Email Marketing)</div>
+                </div>
+                <div>
+                    <div class="agency-summary-number">+26%</div>
+                    <div class="agency-summary-label">Collaborations with Influencers & Content Creators</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. COLORY* -->
+        <div class="agency-block reveal-on-scroll" data-audio="audio-colory">
+            <audio id="audio-colory" loop src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_db659103c2.mp3?filename=ethereal-meditation-112257.mp3"></audio>
+
+            <div class="agency-header">
+                <div>
+                    <h3 class="agency-name">Colory*</h3>
+                    <p class="agency-intro">Project. No to racism.</p>
+                </div>
+                <div class="music-status-badge">
+                    <div class="eq-bars">
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                        <span class="eq-bar"></span>
+                    </div>
+                    <span>Playing: "To Build A Home"</span>
+                </div>
+            </div>
+
+            <div class="editorial-grid">
+                <!-- Colory 1 -->
+                <div class="project-card col-6">
+                    <div class="project-img">
+                        <img src="https://images.pexels.com/photos/8832725/pexels-photo-8832725.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Colory Hands Togetherness">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Colory* Website & Community</div>
+                        <div class="project-desc">UX & UI Writing and inclusive storytelling to launch Colory* website, highlighting the GEN 2 Dictionary and Community stories.</div>
+                        <div class="project-metrics">
+                            <div>
+                                <div class="metric-value">GEN 2</div>
+                                <div class="metric-label">Dictionary & Stories</div>
+                            </div>
+                        </div>
+                        <a href="https://colory.it" target="_blank" class="btn-project-link">
+                            <span>Visit Platform</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colory 2 -->
+                <div class="project-card col-6">
+                    <div class="project-img">
+                        <img src="https://images.pexels.com/photos/32634570/pexels-photo-32634570.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Colory Light Patterns Abstract">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Newsletter & Media Property</div>
+                        <div class="project-desc">Designing a newsletter ecosystem to engage the community, drive recruiting for YouTube video shootings, and promote upcoming events.</div>
+                        <div class="project-metrics">
+                            <div>
+                                <div class="metric-value">Direct</div>
+                                <div class="metric-label">Community Funnel</div>
+                            </div>
+                        </div>
+                        <a href="https://colory.it" target="_blank" class="btn-project-link">
+                            <span>Join Newsletter</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="reveal-on-scroll">
+        <div class="contact-box">
+            <span class="section-tag">Let's connect</span>
+            <h2 class="section-title">Ready to work together?</h2>
+            <p style="color: var(--text-muted); margin-top: 1rem;">I am open to discussing new strategic opportunities, brand consultancy, and creative direction projects.</p>
+            <a href="mailto:info@example.com" class="btn-contact">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Amin Abu Islaih. All rights reserved.</p>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // 1. PRELOADER DISMISS & AUDIO INIT ON FIRST CLICK
+        let audioInitialized = false;
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('loaded');
+            }, 1200);
+        });
+
+        document.addEventListener('click', () => { audioInitialized = true; }, { once: true });
+
+        // 2. CUSTOM CURSOR
+        const cursor = document.getElementById('custom-cursor');
+        window.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+
+        document.querySelectorAll('a, button, .project-card, .horizontal-card').forEach(elem => {
+            elem.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            elem.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        });
+
+        // 3. PARALLAX FULL-SCREEN EFFECT
+        const parallaxImgs = document.querySelectorAll('.parallax-mood-img, #heroBg');
+        window.addEventListener('scroll', () => {
+            parallaxImgs.forEach(img => {
+                const parent = img.parentElement;
+                const rect = parent.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const shift = (rect.top - window.innerHeight / 2) * 0.2;
+                    img.style.transform = `translateY(${shift}px)`;
+                }
+            });
+        });
+
+        // 4. AUTOMATIC AUDIO PLAYBACK ON SCROLLING IN AGENCY BLOCKS
+        const agencyBlocks = document.querySelectorAll('.agency-block');
+        let currentAudio = null;
+
+        const checkAudioScroll = () => {
+            let activeFound = false;
+
+            agencyBlocks.forEach(block => {
+                const rect = block.getBoundingClientRect();
+                const audioId = block.getAttribute('data-audio');
+                const audioElem = document.getElementById(audioId);
+
+                if (rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.2) {
+                    activeFound = true;
+                    block.classList.add('music-playing');
+
+                    if (currentAudio && currentAudio !== audioElem) {
+                        currentAudio.pause();
+                    }
+
+                    if (audioElem && audioElem.paused && audioInitialized) {
+                        audioElem.play().catch(e => console.log('Audio Autoplay Blocked:', e));
+                    }
+                    currentAudio = audioElem;
+                } else {
+                    block.classList.remove('music-playing');
+                    if (audioElem && !audioElem.paused) {
+                        audioElem.pause();
+                    }
+                }
+            });
+
+            if (!activeFound && currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
+        };
+
+        window.addEventListener('scroll', checkAudioScroll);
+
+        // 5. SCROLL REVEAL ANIMATIONS
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 80) {
+                    el.classList.add('is-visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+</html>
