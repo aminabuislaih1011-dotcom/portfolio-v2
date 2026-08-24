@@ -25,11 +25,11 @@
 
         :root {
             --bg-dark: #000000;
-            --bg-card: #0a0a0c;
-            --border-editorial: rgba(255, 255, 255, 0.12);
-            --border-hover: rgba(255, 255, 255, 0.4);
+            --bg-card: #0d0d0f;
+            --border-editorial: rgba(255, 255, 255, 0.15);
+            --border-hover: rgba(255, 255, 255, 0.5);
             --text-main: #f8f8f8;
-            --text-muted: #888888;
+            --text-muted: #a0a0a0;
             --accent-gold: #d4af37;
             --font-serif: 'Playfair Display', Georgia, serif;
             --font-sans: 'Montserrat', -apple-system, sans-serif;
@@ -40,8 +40,10 @@
             background-color: var(--bg-dark);
             color: var(--text-main);
             font-family: var(--font-sans);
-            line-height: 1.6;
-            overflow-x: hidden;
+            line-height: 1.7;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden !important;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -50,7 +52,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
+            width: 100%;
             height: 100vh;
             background: #000000;
             z-index: 10000;
@@ -65,18 +67,18 @@
 
         .loader-title {
             font-family: var(--font-serif);
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-style: italic;
             color: #ffffff;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInText 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
         }
 
         .loader-bar {
-            width: 150px;
-            height: 2px;
+            width: 180px;
+            height: 3px;
             background: rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
@@ -127,16 +129,16 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(15px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-editorial);
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
-            padding: 1.5rem 2.5rem;
+            padding: 1.8rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -144,7 +146,7 @@
 
         .logo {
             font-family: var(--font-serif);
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: #ffffff;
             text-decoration: none;
@@ -155,14 +157,14 @@
 
         nav ul {
             display: flex;
-            gap: 2.5rem;
+            gap: 3rem;
             list-style: none;
         }
 
         nav a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -174,12 +176,13 @@
         /* --- HERO FULL-SCREEN PARALLAX --- */
         #home {
             position: relative;
-            height: 100vh;
-            width: 100vw;
+            min-height: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            padding: 8rem 2rem;
         }
 
         .hero-bg-image {
@@ -206,27 +209,26 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 1100px;
+            max-width: 1200px;
             text-align: center;
-            padding: 0 2rem;
         }
 
         .hero-tag {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             color: var(--accent-gold);
             font-weight: 700;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             display: inline-block;
         }
 
         .hero-content h1 {
             font-family: var(--font-serif);
-            font-size: clamp(3.2rem, 8vw, 6.5rem);
+            font-size: clamp(3.5rem, 9vw, 7.5rem);
             font-weight: 800;
-            line-height: 1;
-            margin-bottom: 2rem;
+            line-height: 1.05;
+            margin-bottom: 2.5rem;
             letter-spacing: -2px;
         }
 
@@ -237,9 +239,9 @@
         }
 
         .hero-content p {
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
             color: var(--text-muted);
-            max-width: 750px;
+            max-width: 850px;
             margin: 0 auto;
             font-weight: 400;
         }
@@ -247,8 +249,8 @@
         /* --- FULL-SCREEN PARALLAX MOOD BANNER --- */
         .parallax-mood-fullscreen {
             position: relative;
-            height: 100vh;
-            width: 100vw;
+            min-height: 75vh;
+            width: 100%;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -273,16 +275,16 @@
             z-index: 2;
             text-align: center;
             padding: 0 2rem;
-            max-width: 1000px;
+            max-width: 1100px;
         }
 
         .parallax-mood-overlay h4 {
             font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.5rem, 6vw, 5rem);
             font-style: italic;
             color: #ffffff;
             letter-spacing: -1px;
-            line-height: 1.1;
+            line-height: 1.15;
         }
 
         /* --- HORIZONTAL SCROLL ABOUT SECTION --- */
@@ -295,21 +297,22 @@
 
         .horizontal-scroll-container {
             display: flex;
-            gap: 2.5rem;
-            padding: 6rem 2.5rem;
+            gap: 3rem;
+            padding: 8rem 3rem;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
         }
 
         .horizontal-scroll-container::-webkit-scrollbar { display: none; }
 
         .horizontal-card {
-            flex: 0 0 400px;
+            flex: 0 0 450px;
             scroll-snap-align: start;
             background: var(--bg-card);
             border: 1px solid var(--border-editorial);
-            padding: 3.5rem 2.5rem;
+            padding: 4rem 3rem;
             transition: var(--transition);
         }
 
@@ -320,29 +323,29 @@
 
         .horizontal-card-num {
             font-family: var(--font-serif);
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-style: italic;
             color: var(--accent-gold);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             line-height: 1;
         }
 
         .horizontal-card h3 {
             font-family: var(--font-serif);
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
             color: #ffffff;
         }
 
         .horizontal-card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 1.05rem;
         }
 
         /* --- SECTIONS COMMON --- */
         section {
-            padding: 8rem 2.5rem 4rem;
-            max-width: 1400px;
+            padding: 10rem 3rem 6rem;
+            max-width: 1500px;
             margin: 0 auto;
         }
 
@@ -358,37 +361,37 @@
         }
 
         .section-header {
-            margin-bottom: 5rem;
+            margin-bottom: 6rem;
             border-bottom: 1px solid var(--border-editorial);
-            padding-bottom: 2rem;
+            padding-bottom: 2.5rem;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .section-tag {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             color: var(--accent-gold);
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             display: block;
         }
 
         .section-title {
             font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
             font-weight: 800;
             letter-spacing: -1px;
         }
 
-        /* --- AGENCY BLOCK & MUSIC ANIMATION --- */
+        /* --- AGENCY BLOCK & SPOTIFY EMBED --- */
         .agency-block {
-            margin-top: 6rem;
-            padding-top: 3rem;
+            margin-top: 8rem;
+            padding-top: 4rem;
             border-top: 1px solid var(--border-editorial);
             position: relative;
         }
@@ -405,76 +408,47 @@
             align-items: flex-start;
             flex-wrap: wrap;
             gap: 2rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .agency-name {
             font-family: var(--font-serif);
-            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
             color: #ffffff;
             letter-spacing: -1px;
         }
 
         .agency-intro {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             color: var(--text-muted);
             font-style: italic;
+            margin-top: 0.4rem;
         }
 
-        /* MUSIC ACTIVE BADGE & EQUALIZER */
-        .music-status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: rgba(255, 255, 255, 0.05);
+        /* SPOTIFY CONTAINER STYLING */
+        .spotify-wrapper {
+            width: 100%;
+            margin-bottom: 3.5rem;
+            border-radius: 16px;
+            overflow: hidden;
             border: 1px solid var(--border-editorial);
-            padding: 0.8rem 1.8rem;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            transition: var(--transition);
+            background: #000;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        .agency-block.music-playing .music-status-badge {
-            border-color: #1ed760;
-            color: #1ed760;
-            background: rgba(30, 215, 96, 0.1);
+        .spotify-wrapper iframe {
+            display: block;
+            border: none;
+            width: 100%;
+            height: 152px;
         }
 
-        .eq-bars {
-            display: flex;
-            align-items: flex-end;
-            gap: 3px;
-            height: 14px;
-        }
-
-        .eq-bar {
-            width: 3px;
-            background-color: currentColor;
-            border-radius: 2px;
-        }
-
-        .agency-block.music-playing .eq-bar {
-            animation: eqAnim 1.2s ease-in-out infinite alternate;
-        }
-
-        .agency-block.music-playing .eq-bar:nth-child(1) { height: 40%; animation-delay: 0.1s; }
-        .agency-block.music-playing .eq-bar:nth-child(2) { height: 100%; animation-delay: 0.3s; }
-        .agency-block.music-playing .eq-bar:nth-child(3) { height: 60%; animation-delay: 0.2s; }
-
-        @keyframes eqAnim {
-            0% { height: 20%; }
-            100% { height: 100%; }
-        }
-
-        /* EDITORIAL GRID & QUADRATE IMAGES (1/1) */
+        /* EDITORIAL GRID & IMAGES */
         .editorial-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: 2.5rem;
+            gap: 3rem;
         }
 
         .col-6 { grid-column: span 6; }
@@ -490,10 +464,9 @@
 
         .project-card:hover {
             border-color: var(--border-hover);
-            transform: translateY(-8px);
+            transform: translateY(-10px);
         }
 
-        /* FORMATO QUADRATO PREMIUM (1 / 1) */
         .project-img {
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -515,7 +488,7 @@
         }
 
         .project-content {
-            padding: 2.5rem;
+            padding: 3rem;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -523,39 +496,39 @@
 
         .project-title {
             font-family: var(--font-serif);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
             font-weight: 800;
         }
 
         .project-desc {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
             flex: 1;
         }
 
         .project-metrics {
             margin-top: auto;
-            padding-top: 1.5rem;
+            padding-top: 2rem;
             border-top: 1px solid var(--border-editorial);
             display: flex;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .metric-value {
             font-family: var(--font-sans);
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 900;
             line-height: 1;
             color: #ffffff;
         }
 
         .metric-label {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
-            margin-top: 0.4rem;
+            margin-top: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -565,11 +538,11 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            padding: 1rem 1.5rem;
+            padding: 1.2rem 1.8rem;
             background: transparent;
             border: 1px solid var(--border-editorial);
             color: #ffffff;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 700;
             text-decoration: none;
             text-transform: uppercase;
@@ -586,60 +559,60 @@
         .agency-summary-banner {
             background: var(--bg-card);
             border: 1px solid var(--border-editorial);
-            padding: 2.5rem;
-            margin-top: 2.5rem;
+            padding: 3.5rem;
+            margin-top: 3rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
         }
 
         .agency-summary-number {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 900;
             color: #ffffff;
         }
 
         .agency-summary-label {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            margin-top: 0.4rem;
+            margin-top: 0.5rem;
         }
 
         .agency-clients-list {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--accent-gold);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         /* CONTACT */
         #contact {
             border-top: 1px solid var(--border-editorial);
             text-align: center;
-            padding-bottom: 8rem;
+            padding-bottom: 10rem;
         }
 
         .contact-box {
             background: var(--bg-card);
             border: 1px solid var(--border-editorial);
-            padding: 6rem 2rem;
-            max-width: 900px;
+            padding: 7rem 3rem;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .btn-contact {
             display: inline-block;
-            margin-top: 2.5rem;
-            padding: 1.2rem 3.5rem;
+            margin-top: 3rem;
+            padding: 1.4rem 4rem;
             background: #ffffff;
             color: #000000;
             font-weight: 800;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-decoration: none;
             transition: var(--transition);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
         }
 
         .btn-contact:hover {
@@ -650,16 +623,98 @@
         /* FOOTER */
         footer {
             border-top: 1px solid var(--border-editorial);
-            padding: 2.5rem;
+            padding: 3rem;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
+        /* ==========================================
+           📱 MOBILE & TABLET OPTIMIZATIONS (RESPONSIVE)
+           ========================================== */
         @media (max-width: 992px) {
             .col-6 { grid-column: span 12; }
             #custom-cursor { display: none; }
             body { cursor: auto; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1.5rem 1.8rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            section {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-bottom: 3.5rem;
+            }
+
+            #home {
+                min-height: 85vh;
+                padding-top: 9rem;
+            }
+
+            .hero-content {
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(2.6rem, 10vw, 4.2rem);
+            }
+
+            .horizontal-scroll-container {
+                padding: 4rem 1.5rem;
+                gap: 1.8rem;
+            }
+
+            .horizontal-card {
+                flex: 0 0 85vw;
+                padding: 3rem 2rem;
+            }
+
+            .project-img {
+                aspect-ratio: 4 / 3;
+            }
+
+            .parallax-mood-fullscreen {
+                min-height: 55vh;
+            }
+
+            .parallax-mood-overlay h4 {
+                font-size: clamp(1.8rem, 7vw, 2.8rem);
+            }
+
+            .agency-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .project-content {
+                padding: 2rem;
+                text-align: center;
+            }
+
+            .project-metrics {
+                justify-content: center;
+            }
+
+            .agency-summary-banner {
+                padding: 2.2rem 1.8rem;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -739,22 +794,16 @@
         </div>
 
         <!-- 1. CAPPELLI IDENTITY DESIGN -->
-        <div class="agency-block reveal-on-scroll" data-audio="audio-cappelli">
-            <audio id="audio-cappelli" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3"></audio>
-            
+        <div class="agency-block reveal-on-scroll">
             <div class="agency-header">
                 <div>
                     <h3 class="agency-name">Cappelli Identity Design</h3>
                     <p class="agency-intro">Big projects. Great clients.</p>
                 </div>
-                <div class="music-status-badge">
-                    <div class="eq-bars">
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                    </div>
-                    <span>Playing: "Looking for a Star"</span>
-                </div>
+            </div>
+
+            <div class="spotify-wrapper">
+                <iframe src="https://open.spotify.com/embed/track/1B3TX5FbmcVROMv2riOwyE?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
             <div class="editorial-grid">
@@ -804,7 +853,7 @@
             <div class="agency-summary-banner">
                 <div>
                     <span class="agency-clients-list">Key Clients</span>
-                    <p style="color:#fff; font-weight:700; margin-top:0.3rem;">Cinecittà • MIC • Terna • RUFA</p>
+                    <p style="color:#fff; font-weight:700; margin-top:0.5rem; font-size:1.1rem;">Cinecittà • MIC • Terna • RUFA</p>
                 </div>
                 <div>
                     <div class="agency-summary-number">+109%</div>
@@ -826,22 +875,16 @@
         </div>
 
         <!-- 2. JAKALA -->
-        <div class="agency-block reveal-on-scroll" data-audio="audio-jakala">
-            <audio id="audio-jakala" loop src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a303e3.mp3?filename=chill-abstract-intention-12099.mp3"></audio>
-
+        <div class="agency-block reveal-on-scroll">
             <div class="agency-header">
                 <div>
                     <h3 class="agency-name">JAKALA</h3>
                     <p class="agency-intro">Big stage. To lead.</p>
                 </div>
-                <div class="music-status-badge">
-                    <div class="eq-bars">
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                    </div>
-                    <span>Playing: "Feeling Good"</span>
-                </div>
+            </div>
+
+            <div class="spotify-wrapper">
+                <iframe src="https://open.spotify.com/embed/track/6Rqn2GFlmvmV4w9Ala0I1e?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
             <div class="editorial-grid">
@@ -891,7 +934,7 @@
             <div class="agency-summary-banner">
                 <div>
                     <span class="agency-clients-list">Key Clients</span>
-                    <p style="color:#fff; font-weight:700; margin-top:0.3rem;">Vodafone Business • Loro Piana • Lamborghini</p>
+                    <p style="color:#fff; font-weight:700; margin-top:0.5rem; font-size:1.1rem;">Vodafone Business • Loro Piana • Lamborghini</p>
                 </div>
                 <div>
                     <div class="agency-summary-number">+12</div>
@@ -905,22 +948,16 @@
         </div>
 
         <!-- 3. DST -->
-        <div class="agency-block reveal-on-scroll" data-audio="audio-dst">
-            <audio id="audio-dst" loop src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=ambient-piano-10781.mp3"></audio>
-
+        <div class="agency-block reveal-on-scroll">
             <div class="agency-header">
                 <div>
                     <h3 class="agency-name">DST</h3>
                     <p class="agency-intro">Tough. Trust the process.</p>
                 </div>
-                <div class="music-status-badge">
-                    <div class="eq-bars">
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                    </div>
-                    <span>Playing: "Still Don't Know My Name"</span>
-                </div>
+            </div>
+
+            <div class="spotify-wrapper">
+                <iframe src="https://open.spotify.com/embed/track/6N22FZs2ZhPBYi3b9XPajV?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
             <div class="editorial-grid">
@@ -945,10 +982,10 @@
                     </div>
                 </div>
 
-                <!-- Telepass NFT (NUOVA IMMAGINE PEXELS 3D GEOMETRICA) -->
+                <!-- Telepass NFT -->
                 <div class="project-card col-6">
                     <div class="project-img">
-                        <img src="https://images.pexels.com/photos/29474094/pexels-photo-29474094.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Telepass NFT 3D Abstract Pastel Shapes">
+                        <img src="https://images.pexels.com/photos/29474094/pexels-photo-29474094.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Telepass NFT 3D Abstract Shapes">
                     </div>
                     <div class="project-content">
                         <div class="project-title">Telepass NFT Campaign</div>
@@ -970,7 +1007,7 @@
             <div class="agency-summary-banner">
                 <div>
                     <span class="agency-clients-list">Key Clients</span>
-                    <p style="color:#fff; font-weight:700; margin-top:0.3rem;">Enel X • Telepass • Poste Italiane</p>
+                    <p style="color:#fff; font-weight:700; margin-top:0.5rem; font-size:1.1rem;">Enel X • Telepass • Poste Italiane</p>
                 </div>
                 <div>
                     <div class="agency-summary-number">+122%</div>
@@ -984,22 +1021,16 @@
         </div>
 
         <!-- 4. LAV -->
-        <div class="agency-block reveal-on-scroll" data-audio="audio-lav">
-            <audio id="audio-lav" loop src="https://cdn.pixabay.com/download/audio/2022/02/07/audio_b2875f68b3.mp3?filename=soft-rain-ambient-111154.mp3"></audio>
-
+        <div class="agency-block reveal-on-scroll">
             <div class="agency-header">
                 <div>
                     <h3 class="agency-name">LAV</h3>
                     <p class="agency-intro">Non-profit. Skills.</p>
                 </div>
-                <div class="music-status-badge">
-                    <div class="eq-bars">
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                    </div>
-                    <span>Playing: "Heaven"</span>
-                </div>
+            </div>
+
+            <div class="spotify-wrapper">
+                <iframe src="https://open.spotify.com/embed/track/09wrW4mdaoBrOFY6KSR94h?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
             <div class="editorial-grid">
@@ -1063,22 +1094,16 @@
         </div>
 
         <!-- 5. COLORY* -->
-        <div class="agency-block reveal-on-scroll" data-audio="audio-colory">
-            <audio id="audio-colory" loop src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_db659103c2.mp3?filename=ethereal-meditation-112257.mp3"></audio>
-
+        <div class="agency-block reveal-on-scroll">
             <div class="agency-header">
                 <div>
                     <h3 class="agency-name">Colory*</h3>
                     <p class="agency-intro">Project. No to racism.</p>
                 </div>
-                <div class="music-status-badge">
-                    <div class="eq-bars">
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                        <span class="eq-bar"></span>
-                    </div>
-                    <span>Playing: "To Build A Home"</span>
-                </div>
+            </div>
+
+            <div class="spotify-wrapper">
+                <iframe src="https://open.spotify.com/embed/track/54KFQB6N4pn926IUUYZGzK?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
             <div class="editorial-grid">
@@ -1132,7 +1157,7 @@
         <div class="contact-box">
             <span class="section-tag">Let's connect</span>
             <h2 class="section-title">Ready to work together?</h2>
-            <p style="color: var(--text-muted); margin-top: 1rem;">I am open to discussing new strategic opportunities, brand consultancy, and creative direction projects.</p>
+            <p style="color: var(--text-muted); margin-top: 1.2rem; font-size: 1.1rem;">I am open to discussing new strategic opportunities, brand consultancy, and creative direction projects.</p>
             <a href="mailto:info@example.com" class="btn-contact">Get In Touch</a>
         </div>
     </section>
@@ -1144,15 +1169,12 @@
 
     <!-- INTERACTIVE JAVASCRIPT -->
     <script>
-        // 1. PRELOADER DISMISS & AUDIO INIT ON FIRST CLICK
-        let audioInitialized = false;
+        // 1. PRELOADER DISMISS
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('preloader').classList.add('loaded');
             }, 1200);
         });
-
-        document.addEventListener('click', () => { audioInitialized = true; }, { once: true });
 
         // 2. CUSTOM CURSOR
         const cursor = document.getElementById('custom-cursor');
@@ -1173,53 +1195,13 @@
                 const parent = img.parentElement;
                 const rect = parent.getBoundingClientRect();
                 if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    const shift = (rect.top - window.innerHeight / 2) * 0.2;
+                    const shift = (rect.top - window.innerHeight / 2) * 0.15;
                     img.style.transform = `translateY(${shift}px)`;
                 }
             });
         });
 
-        // 4. AUTOMATIC AUDIO PLAYBACK ON SCROLLING IN AGENCY BLOCKS
-        const agencyBlocks = document.querySelectorAll('.agency-block');
-        let currentAudio = null;
-
-        const checkAudioScroll = () => {
-            let activeFound = false;
-
-            agencyBlocks.forEach(block => {
-                const rect = block.getBoundingClientRect();
-                const audioId = block.getAttribute('data-audio');
-                const audioElem = document.getElementById(audioId);
-
-                if (rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.2) {
-                    activeFound = true;
-                    block.classList.add('music-playing');
-
-                    if (currentAudio && currentAudio !== audioElem) {
-                        currentAudio.pause();
-                    }
-
-                    if (audioElem && audioElem.paused && audioInitialized) {
-                        audioElem.play().catch(e => console.log('Audio Autoplay Blocked:', e));
-                    }
-                    currentAudio = audioElem;
-                } else {
-                    block.classList.remove('music-playing');
-                    if (audioElem && !audioElem.paused) {
-                        audioElem.pause();
-                    }
-                }
-            });
-
-            if (!activeFound && currentAudio) {
-                currentAudio.pause();
-                currentAudio = null;
-            }
-        };
-
-        window.addEventListener('scroll', checkAudioScroll);
-
-        // 5. SCROLL REVEAL ANIMATIONS
+        // 4. SCROLL REVEAL ANIMATIONS
         const revealElements = document.querySelectorAll('.reveal-on-scroll');
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
