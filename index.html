@@ -401,7 +401,7 @@
 
         .project-img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             overflow: hidden;
         }
 
@@ -436,7 +436,6 @@
             margin-top: auto;
             padding-top: 1rem;
             border-top: 1px solid var(--border-editorial);
-            margin-bottom: 1.2rem;
         }
 
         .metric-value {
@@ -451,23 +450,6 @@
             color: var(--text-muted);
             margin-top: 0.2rem;
             text-transform: uppercase;
-        }
-
-        .btn-project-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 0.85rem 1rem;
-            background: transparent;
-            border: 1px solid var(--border-editorial);
-            color: #ffffff;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
         }
 
         .agency-summary-banner {
@@ -524,6 +506,12 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .btn-contact:hover {
+            background: var(--accent-gold);
+            color: #ffffff;
         }
 
         footer {
@@ -534,7 +522,7 @@
             font-size: 0.75rem;
         }
 
-        /* --- DESKTOP BREAKPOINTS --- */
+        /* --- DESKTOP BREAKPOINTS & QUADRATE IMAGES --- */
         @media (min-width: 768px) {
             .editorial-grid {
                 display: grid;
@@ -552,8 +540,10 @@
                 max-width: none;
             }
 
+            /* IMMAGINI QUADRATE SOLO SU DESKTOP */
             .project-img {
-                height: 300px;
+                height: auto;
+                aspect-ratio: 1 / 1;
             }
         }
     </style>
@@ -587,7 +577,7 @@
     <section id="home">
         <img class="hero-bg-image" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" alt="Hero background">
         <div class="hero-content">
-            <span class="hero-tag">Selected Works 2025</span>
+            <span class="hero-tag">Selected Works 2026</span>
             <h1>Digital & Brand <i>Strategist</i></h1>
             <p>Crafting high-impact digital communication, brand identities, and scalable growth strategies for industry-leading clients.</p>
         </div>
@@ -642,7 +632,7 @@
             <div class="editorial-grid">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Autostar Strategy">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Autostar Strategy">
                     </div>
                     <div class="project-content">
                         <div class="project-title">Digital Strategy & Rebranding</div>
@@ -651,16 +641,12 @@
                             <div class="metric-value">CRM</div>
                             <div class="metric-label">Salesforce Supervision</div>
                         </div>
-                        <a href="#contact" class="btn-project-link">
-                            <span>Explore Details</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Autostar Performance">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Autostar Automation & Tech">
                     </div>
                     <div class="project-content">
                         <div class="project-title">Growth & Automation</div>
@@ -669,10 +655,6 @@
                             <div class="metric-value">AI Tech</div>
                             <div class="metric-label">Agentic Marketing</div>
                         </div>
-                        <a href="#contact" class="btn-project-link">
-                            <span>Explore Details</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -692,7 +674,7 @@
             <div class="editorial-grid">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Together Data">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Together Data Analytics">
                     </div>
                     <div class="project-content">
                         <div class="project-title">Data Analysis & Reporting</div>
@@ -701,16 +683,12 @@
                             <div class="metric-value">Analytics</div>
                             <div class="metric-label">Data Driven</div>
                         </div>
-                        <a href="#contact" class="btn-project-link">
-                            <span>Explore Details</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80" alt="Together Search">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Together SEO & SEM">
                     </div>
                     <div class="project-content">
                         <div class="project-title">Search Engine Marketing</div>
@@ -719,10 +697,6 @@
                             <div class="metric-value">SEO / SEM</div>
                             <div class="metric-label">Search Strategy</div>
                         </div>
-                        <a href="#contact" class="btn-project-link">
-                            <span>Explore Details</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -751,10 +725,6 @@
                             <div class="metric-value">GEN 2</div>
                             <div class="metric-label">Dictionary & Stories</div>
                         </div>
-                        <a href="https://colory.it" target="_blank" class="btn-project-link">
-                            <span>Visit Platform</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
 
@@ -769,10 +739,6 @@
                             <div class="metric-value">Direct</div>
                             <div class="metric-label">Community Funnel</div>
                         </div>
-                        <a href="https://colory.it" target="_blank" class="btn-project-link">
-                            <span>Join Newsletter</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -801,10 +767,6 @@
                             <div class="metric-value">+145%</div>
                             <div class="metric-label">Users & Followers</div>
                         </div>
-                        <a href="https://www.lav.it" target="_blank" class="btn-project-link">
-                            <span>Visit Website</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
 
@@ -819,10 +781,6 @@
                             <div class="metric-value">+78%</div>
                             <div class="metric-label">Digital Income Growth</div>
                         </div>
-                        <a href="https://www.lav.it" target="_blank" class="btn-project-link">
-                            <span>Explore Campaigns</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -858,10 +816,6 @@
                             <div class="metric-value">+122%</div>
                             <div class="metric-label">Social Followers</div>
                         </div>
-                        <a href="https://www.enelxway.com" target="_blank" class="btn-project-link">
-                            <span>View Platform</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
 
@@ -876,10 +830,6 @@
                             <div class="metric-value">+19%</div>
                             <div class="metric-label">Users & Sessions</div>
                         </div>
-                        <a href="https://www.telepass.com" target="_blank" class="btn-project-link">
-                            <span>View Campaign</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -908,10 +858,6 @@
                             <div class="metric-value">+9%</div>
                             <div class="metric-label">Email Conversion Rate</div>
                         </div>
-                        <a href="https://www.vodafone.it/business.html" target="_blank" class="btn-project-link">
-                            <span>Explore Project</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
 
@@ -926,10 +872,6 @@
                             <div class="metric-value">+12</div>
                             <div class="metric-label">Customer Journeys</div>
                         </div>
-                        <a href="https://www.lamborghini.com" target="_blank" class="btn-project-link">
-                            <span>Discover Platform</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -973,10 +915,6 @@
                             <div class="metric-value">+109%</div>
                             <div class="metric-label">New Followers</div>
                         </div>
-                        <a href="https://youtu.be/0-X3M7o924I" target="_blank" class="btn-project-link">
-                            <span>View Case Study</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
 
@@ -991,10 +929,6 @@
                             <div class="metric-value">+11%</div>
                             <div class="metric-label">Students ADV</div>
                         </div>
-                        <a href="https://www.unirufa.it" target="_blank" class="btn-project-link">
-                            <span>Visit Website</span>
-                            <span>&rarr;</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -1022,7 +956,7 @@
             <span class="section-tag">Let's connect</span>
             <h2 class="section-title">Ready to work together?</h2>
             <p style="color: var(--text-muted); margin-top: 1rem;">I am open to discussing new strategic opportunities and creative direction projects.</p>
-            <a href="mailto:info@example.com" class="btn-contact">Get In Touch</a>
+            <a href="mailto:amin.abuislaih1011@gmail.com" class="btn-contact">Get In Touch</a>
         </div>
     </section>
 
