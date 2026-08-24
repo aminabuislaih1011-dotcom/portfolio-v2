@@ -225,19 +225,20 @@
             margin: 0 auto;
         }
 
-        /* --- CARDS HORIZONTAL --- */
+        /* --- CARDS SECTION (ABOUT) --- */
         .horizontal-section-outer {
             width: 100%;
             border-top: 1px solid var(--border-editorial);
             border-bottom: 1px solid var(--border-editorial);
             background: #050505;
-            overflow: hidden;
+            padding: 3.5rem 1.5rem;
         }
 
         .horizontal-scroll-container {
             display: flex;
-            gap: 1.2rem;
-            padding: 3.5rem 1.5rem;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
@@ -338,7 +339,7 @@
             font-weight: 800;
         }
 
-        /* --- AGENCIES & SPOTIFY --- */
+        /* --- AGENCIES & SPOTIFY BADGE --- */
         .agency-block {
             margin-top: 3.5rem;
             padding-top: 2.5rem;
@@ -365,20 +366,56 @@
             margin-bottom: 1.2rem;
         }
 
+        /* EMBED SPOTIFY ELEGANTE E ROBUSTO */
         .spotify-wrapper {
             width: 100%;
-            margin-bottom: 2rem;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #000;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            background: #09090b;
             border: 1px solid var(--border-editorial);
-            height: 152px;
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .spotify-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
+        .spotify-info {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .spotify-icon {
+            width: 12px;
+            height: 12px;
+            background-color: #1db954;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(29, 185, 84, 0.6);
+        }
+
+        .spotify-text {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .spotify-link {
+            color: #ffffff;
+            font-size: 0.75rem;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--accent-gold);
+            padding-bottom: 2px;
+            transition: var(--transition);
+        }
+
+        .spotify-link:hover {
+            color: var(--accent-gold);
         }
 
         /* --- GRID RESPONSIVE --- */
@@ -522,8 +559,20 @@
             font-size: 0.75rem;
         }
 
-        /* --- DESKTOP BREAKPOINTS & QUADRATE IMAGES --- */
+        /* --- DESKTOP BREAKPOINTS & FIXES --- */
         @media (min-width: 768px) {
+            .horizontal-scroll-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+                overflow-x: visible;
+            }
+
+            .horizontal-card {
+                flex: none;
+                max-width: 100%;
+            }
+
             .editorial-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -535,12 +584,6 @@
                 grid-template-columns: repeat(3, 1fr);
             }
 
-            .horizontal-card {
-                flex: 0 0 380px;
-                max-width: none;
-            }
-
-            /* IMMAGINI QUADRATE SOLO SU DESKTOP */
             .project-img {
                 height: auto;
                 aspect-ratio: 1 / 1;
@@ -583,7 +626,7 @@
         </div>
     </section>
 
-    <!-- HORIZONTAL CARDS -->
+    <!-- CARDS SECTION ABOUT -->
     <div id="about" class="horizontal-section-outer">
         <div class="horizontal-scroll-container">
             <div class="horizontal-card">
@@ -626,7 +669,11 @@
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/56XhZKFVFeylLeAELp6pdE" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="spotify-info">
+                    <span class="spotify-icon"></span>
+                    <span class="spotify-text">Project Soundtrack • Curator Track</span>
+                </div>
+                <a href="https://open.spotify.com/track/56XhZKFVFeylLeAELp6pdE" target="_blank" class="spotify-link">Listen on Spotify ↗</a>
             </div>
 
             <div class="editorial-grid">
@@ -668,7 +715,11 @@
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/269XSeQhDrWEotMALJaACW" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="spotify-info">
+                    <span class="spotify-icon"></span>
+                    <span class="spotify-text">Project Soundtrack • Curator Track</span>
+                </div>
+                <a href="https://open.spotify.com/track/269XSeQhDrWEotMALJaACW" target="_blank" class="spotify-link">Listen on Spotify ↗</a>
             </div>
 
             <div class="editorial-grid">
@@ -710,7 +761,11 @@
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/54KFQB6N4pn926IUUYZGzK" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="spotify-info">
+                    <span class="spotify-icon"></span>
+                    <span class="spotify-text">Project Soundtrack • Curator Track</span>
+                </div>
+                <a href="https://open.spotify.com/track/54KFQB6N4pn926IUUYZGzK" target="_blank" class="spotify-link">Listen on Spotify ↗</a>
             </div>
 
             <div class="editorial-grid">
@@ -752,7 +807,11 @@
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/09wrW4mdaoBrOFY6KSR94h" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="spotify-info">
+                    <span class="spotify-icon"></span>
+                    <span class="spotify-text">Project Soundtrack • Curator Track</span>
+                </div>
+                <a href="https://open.spotify.com/track/09wrW4mdaoBrOFY6KSR94h" target="_blank" class="spotify-link">Listen on Spotify ↗</a>
             </div>
 
             <div class="editorial-grid">
@@ -801,7 +860,11 @@
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/6N22FZs2ZhPBYi3b9XPajV" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="spotify-info">
+                    <span class="spotify-icon"></span>
+                    <span class="spotify-text">Project Soundtrack • Curator Track</span>
+                </div>
+                <a href="https://open.spotify.com/track/6N22FZs2ZhPBYi3b9XPajV" target="_blank" class="spotify-link">Listen on Spotify ↗</a>
             </div>
 
             <div class="editorial-grid">
@@ -843,7 +906,11 @@
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/6Rqn2GFlmvmV4w9Ala0I1e" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="spotify-info">
+                    <span class="spotify-icon"></span>
+                    <span class="spotify-text">Project Soundtrack • Curator Track</span>
+                </div>
+                <a href="https://open.spotify.com/track/6Rqn2GFlmvmV4w9Ala0I1e" target="_blank" class="spotify-link">Listen on Spotify ↗</a>
             </div>
 
             <div class="editorial-grid">
@@ -900,7 +967,11 @@
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/1B3TX5FbmcVROMv2riOwyE" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="spotify-info">
+                    <span class="spotify-icon"></span>
+                    <span class="spotify-text">Project Soundtrack • Curator Track</span>
+                </div>
+                <a href="https://open.spotify.com/track/1B3TX5FbmcVROMv2riOwyE" target="_blank" class="spotify-link">Listen on Spotify ↗</a>
             </div>
 
             <div class="editorial-grid">
