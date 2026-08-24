@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Amin Abu Islaih — Strategic & Creative Portfolio</title>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Montserrat & Inter per il font da CV) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
 
     <style>
         /* --- RESET ANTI-OVERFLOW TOTALE --- */
@@ -24,7 +24,7 @@
             overflow-x: hidden !important;
             background-color: #000000;
             color: #f8f8f8;
-            font-family: 'Montserrat', -apple-system, sans-serif;
+            font-family: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
@@ -37,7 +37,7 @@
             --text-main: #f8f8f8;
             --text-muted: #a0a0a0;
             --accent-gold: #d4af37;
-            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-main: 'Montserrat', 'Inter', sans-serif;
             --transition: all 0.4s ease;
         }
 
@@ -60,9 +60,10 @@
         #preloader.loaded { transform: translateY(-100%); }
 
         .loader-title {
-            font-family: var(--font-serif);
-            font-size: clamp(2rem, 5vw, 4.5rem);
-            font-style: italic;
+            font-family: var(--font-main);
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -1px;
             color: #ffffff;
             margin-bottom: 1.5rem;
             opacity: 0;
@@ -136,9 +137,10 @@
         }
 
         .logo {
-            font-family: var(--font-serif);
-            font-size: 1.3rem;
+            font-family: var(--font-main);
+            font-size: 1.2rem;
             font-weight: 800;
+            letter-spacing: -0.5px;
             color: #ffffff;
             text-decoration: none;
         }
@@ -205,17 +207,17 @@
         }
 
         .hero-content h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(2.2rem, 6.5vw, 5.5rem);
-            font-weight: 800;
-            line-height: 1.15;
+            font-family: var(--font-main);
+            font-size: clamp(2.2rem, 6.5vw, 5rem);
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
             margin-bottom: 1.2rem;
         }
 
         .hero-content h1 i {
-            font-style: italic;
-            font-weight: 400;
-            color: #d1d1d1;
+            font-style: normal;
+            color: var(--accent-gold);
         }
 
         .hero-content p {
@@ -223,6 +225,7 @@
             color: var(--text-muted);
             max-width: 700px;
             margin: 0 auto;
+            font-weight: 400;
         }
 
         /* --- CARDS SECTION (ABOUT) --- */
@@ -257,23 +260,24 @@
         }
 
         .horizontal-card-num {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            font-style: italic;
+            font-family: var(--font-main);
+            font-size: 2rem;
+            font-weight: 800;
             color: var(--accent-gold);
             margin-bottom: 0.8rem;
         }
 
         .horizontal-card h3 {
-            font-family: var(--font-serif);
-            font-size: 1.3rem;
+            font-family: var(--font-main);
+            font-size: 1.2rem;
+            font-weight: 700;
             margin-bottom: 0.8rem;
             color: #ffffff;
         }
 
         .horizontal-card p {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
 
         /* --- BANNER --- */
@@ -290,9 +294,9 @@
         }
 
         .parallax-mood-overlay h4 {
-            font-family: var(--font-serif);
-            font-size: clamp(1.4rem, 4vw, 3rem);
-            font-style: italic;
+            font-family: var(--font-main);
+            font-size: clamp(1.3rem, 3.5vw, 2.5rem);
+            font-weight: 700;
             color: #ffffff;
             max-width: 900px;
             line-height: 1.3;
@@ -334,12 +338,13 @@
         }
 
         .section-title {
-            font-family: var(--font-serif);
+            font-family: var(--font-main);
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
+            letter-spacing: -1px;
         }
 
-        /* --- AGENCIES & SPOTIFY PLAYER --- */
+        /* --- AGENCIES & SPOTIFY PLAYER FIX --- */
         .agency-block {
             margin-top: 3.5rem;
             padding-top: 2.5rem;
@@ -353,17 +358,17 @@
         }
 
         .agency-name {
-            font-family: var(--font-serif);
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-family: var(--font-main);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 800;
             color: #ffffff;
         }
 
         .agency-intro {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            font-style: italic;
             margin-bottom: 1.2rem;
+            font-weight: 500;
         }
 
         .spotify-wrapper {
@@ -371,7 +376,8 @@
             margin-bottom: 1.5rem;
             border-radius: 12px;
             overflow: hidden;
-            background: transparent;
+            background: #121212;
+            min-height: 152px;
         }
 
         .spotify-wrapper iframe {
@@ -382,7 +388,7 @@
             display: block;
         }
 
-        /* --- GRID RESPONSIVE --- */
+        /* --- GRID RESPONSIVE & FOTO QUADRATE SUI MOBILE --- */
         .editorial-grid {
             display: flex;
             flex-direction: column;
@@ -400,9 +406,10 @@
             width: 100%;
         }
 
+        /* Foto sempre quadrate sia Mobile che Desktop */
         .project-img {
             width: 100%;
-            height: 220px;
+            aspect-ratio: 1 / 1;
             overflow: hidden;
         }
 
@@ -421,15 +428,15 @@
         }
 
         .project-title {
-            font-family: var(--font-serif);
-            font-size: 1.35rem;
+            font-family: var(--font-main);
+            font-size: 1.25rem;
             margin-bottom: 0.6rem;
-            font-weight: 800;
+            font-weight: 700;
         }
 
         .project-desc {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             margin-bottom: 1.2rem;
         }
 
@@ -440,8 +447,8 @@
         }
 
         .metric-value {
-            font-size: 2rem;
-            font-weight: 900;
+            font-size: 1.8rem;
+            font-weight: 800;
             line-height: 1;
             color: #ffffff;
         }
@@ -451,6 +458,7 @@
             color: var(--text-muted);
             margin-top: 0.2rem;
             text-transform: uppercase;
+            font-weight: 600;
         }
 
         .agency-summary-banner {
@@ -465,13 +473,13 @@
         }
 
         .agency-summary-number {
-            font-size: 2rem;
-            font-weight: 900;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: #ffffff;
         }
 
         .agency-summary-label {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
         }
 
@@ -523,7 +531,7 @@
             font-size: 0.75rem;
         }
 
-        /* --- DESKTOP BREAKPOINTS & FIXES --- */
+        /* --- DESKTOP BREAKPOINTS --- */
         @media (min-width: 768px) {
             .horizontal-scroll-container {
                 display: grid;
@@ -546,11 +554,6 @@
             .agency-summary-banner {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-            }
-
-            .project-img {
-                height: auto;
-                aspect-ratio: 1 / 1;
             }
         }
     </style>
@@ -629,38 +632,38 @@
         <div class="agency-block reveal-on-scroll">
             <div class="agency-header">
                 <h3 class="agency-name">Autostar Flaminia</h3>
-                <p class="agency-intro">Marketing Director</p>
+                <p class="agency-intro">Marketing Coordinator</p>
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/56XhZKFVFeylLeAELp6pdE?utm_source=generator&theme=0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/track/56XhZKFVFeylLeAELp6pdE" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
             <div class="editorial-grid">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Autostar Strategy">
+                        <img src="https://images.pexels.com/photos/4488643/pexels-photo-4488643.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Autostar Neon Car">
                     </div>
                     <div class="project-content">
                         <div class="project-title">Digital Strategy & Rebranding</div>
                         <div class="project-desc">Digital Project Management for rebranding, Online Branding, Marketing Automation, and Customer Journey Renewal.</div>
                         <div class="project-metrics">
-                            <div class="metric-value">CRM</div>
-                            <div class="metric-label">Salesforce Supervision</div>
+                            <div class="metric-value">+18%</div>
+                            <div class="metric-label">Perf. ADV & Lead Generation</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Autostar Automation & Tech">
+                        <img src="https://images.pexels.com/photos/8648196/pexels-photo-8648196.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Autostar Car Detailing">
                     </div>
                     <div class="project-content">
                         <div class="project-title">Growth & Automation</div>
                         <div class="project-desc">Digital Advertising, Budgeting, KPI Monitoring, Reporting, Digital Analysis, and Agentic Marketing Implementation.</div>
                         <div class="project-metrics">
-                            <div class="metric-value">AI Tech</div>
-                            <div class="metric-label">Agentic Marketing</div>
+                            <div class="metric-value">CRM</div>
+                            <div class="metric-label">Salesforce Supervision</div>
                         </div>
                     </div>
                 </div>
@@ -671,17 +674,17 @@
         <div class="agency-block reveal-on-scroll">
             <div class="agency-header">
                 <h3 class="agency-name">Together</h3>
-                <p class="agency-intro">Marketing Analyst</p>
+                <p class="agency-intro">Senior Digital Analyst</p>
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/269XSeQhDrWEotMALJaACW?utm_source=generator&theme=0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/track/269XSeQhDrWEotMALJaACW" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
             <div class="editorial-grid">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Together Data Analytics">
+                        <img src="https://images.pexels.com/photos/33000152/pexels-photo-33000152.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Together Crypto Trend Analytics">
                     </div>
                     <div class="project-content">
                         <div class="project-title">Data Analysis & Reporting</div>
@@ -695,7 +698,7 @@
 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Together SEO & SEM">
+                        <img src="https://images.pexels.com/photos/13618667/pexels-photo-13618667.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Together Costa Ferry Port">
                     </div>
                     <div class="project-content">
                         <div class="project-title">Search Engine Marketing</div>
@@ -707,17 +710,32 @@
                     </div>
                 </div>
             </div>
+
+            <div class="agency-summary-banner">
+                <div>
+                    <span class="agency-clients-list">Key Clients</span>
+                    <p style="color:#fff; font-weight:700; margin-top:0.3rem;">Maserati • Costa Crociere • Enel</p>
+                </div>
+                <div>
+                    <div class="agency-summary-number">KPI</div>
+                    <div class="agency-summary-label">Advanced Multi-Channel Monitoring</div>
+                </div>
+                <div>
+                    <div class="agency-summary-number">Data</div>
+                    <div class="agency-summary-label">Reporting & Search Optimization</div>
+                </div>
+            </div>
         </div>
 
         <!-- 3. COLORY* -->
         <div class="agency-block reveal-on-scroll">
             <div class="agency-header">
                 <h3 class="agency-name">Colory*</h3>
-                <p class="agency-intro">Project. No to racism.</p>
+                <p class="agency-intro">Founder & Strategist</p>
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/54KFQB6N4pn926IUUYZGzK?utm_source=generator&theme=0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/track/54KFQB6N4pn926IUUYZGzK" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
             <div class="editorial-grid">
@@ -727,10 +745,10 @@
                     </div>
                     <div class="project-content">
                         <div class="project-title">Website & Community</div>
-                        <div class="project-desc">UX & UI Writing and inclusive storytelling to launch Colory* website, highlighting the GEN 2 Dictionary.</div>
+                        <div class="project-desc">UX & UI Writing and inclusive storytelling to launch Colory* website, highlighting diversity & inclusion principles.</div>
                         <div class="project-metrics">
-                            <div class="metric-value">GEN 2</div>
-                            <div class="metric-label">Dictionary & Stories</div>
+                            <div class="metric-value">DEI</div>
+                            <div class="metric-label">Diversity & Inclusion</div>
                         </div>
                     </div>
                 </div>
@@ -741,7 +759,7 @@
                     </div>
                     <div class="project-content">
                         <div class="project-title">Newsletter & Media</div>
-                        <div class="project-desc">Designing a newsletter ecosystem to engage the community and drive recruiting for YouTube video shootings.</div>
+                        <div class="project-desc">Designing a newsletter ecosystem to engage the community and drive recruiting for original video content.</div>
                         <div class="project-metrics">
                             <div class="metric-value">Direct</div>
                             <div class="metric-label">Community Funnel</div>
@@ -755,11 +773,11 @@
         <div class="agency-block reveal-on-scroll">
             <div class="agency-header">
                 <h3 class="agency-name">LAV</h3>
-                <p class="agency-intro">Non-profit. Skills.</p>
+                <p class="agency-intro">Senior Digital Strategist</p>
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/09wrW4mdaoBrOFY6KSR94h?utm_source=generator&theme=0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/track/09wrW4mdaoBrOFY6KSR94h" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
             <div class="editorial-grid">
@@ -769,7 +787,7 @@
                     </div>
                     <div class="project-content">
                         <div class="project-title">Social Media Strategy</div>
-                        <div class="project-desc">LAV was the 1st association in Italy for fanbase growth. Strategy focused on ADV campaigns for fan building.</div>
+                        <div class="project-desc">Digital strategy across all properties. Executed digital lead generation and conversion campaigns.</div>
                         <div class="project-metrics">
                             <div class="metric-value">+145%</div>
                             <div class="metric-label">Users & Followers</div>
@@ -783,7 +801,7 @@
                     </div>
                     <div class="project-content">
                         <div class="project-title">Web Content & Funnel</div>
-                        <div class="project-desc">Optimizing website assets for breaking news, petitions, and campaigns. Building a smooth donation flow.</div>
+                        <div class="project-desc">Optimizing website assets, tracking GA4 & Looker Studio metrics, and building smooth donation flows.</div>
                         <div class="project-metrics">
                             <div class="metric-value">+78%</div>
                             <div class="metric-label">Digital Income Growth</div>
@@ -804,11 +822,11 @@
         <div class="agency-block reveal-on-scroll">
             <div class="agency-header">
                 <h3 class="agency-name">DST</h3>
-                <p class="agency-intro">Tough. Trust the process.</p>
+                <p class="agency-intro">Digital Strategist</p>
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/6N22FZs2ZhPBYi3b9XPajV?utm_source=generator&theme=0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/track/6N22FZs2ZhPBYi3b9XPajV" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
             <div class="editorial-grid">
@@ -840,17 +858,32 @@
                     </div>
                 </div>
             </div>
+
+            <div class="agency-summary-banner">
+                <div>
+                    <span class="agency-clients-list">Key Clients</span>
+                    <p style="color:#fff; font-weight:700; margin-top:0.3rem;">Telepass • Enel • Enel X Way</p>
+                </div>
+                <div>
+                    <div class="agency-summary-number">+122%</div>
+                    <div class="agency-summary-label">Social followers growth</div>
+                </div>
+                <div>
+                    <div class="agency-summary-number">+19%</div>
+                    <div class="agency-summary-label">New users and web sessions</div>
+                </div>
+            </div>
         </div>
 
         <!-- 6. JAKALA -->
         <div class="agency-block reveal-on-scroll">
             <div class="agency-header">
                 <h3 class="agency-name">JAKALA</h3>
-                <p class="agency-intro">Big stage. To lead.</p>
+                <p class="agency-intro">Digital Strategist</p>
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/6Rqn2GFlmvmV4w9Ala0I1e?utm_source=generator&theme=0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/track/6Rqn2GFlmvmV4w9Ala0I1e" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
             <div class="editorial-grid">
@@ -903,11 +936,11 @@
         <div class="agency-block reveal-on-scroll">
             <div class="agency-header">
                 <h3 class="agency-name">Cappelli Identity Design</h3>
-                <p class="agency-intro">Big projects. Great clients.</p>
+                <p class="agency-intro">Digital Strategist</p>
             </div>
 
             <div class="spotify-wrapper">
-                <iframe src="https://open.spotify.com/embed/track/1B3TX5FbmcVROMv2riOwyE?utm_source=generator&theme=0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/track/1B3TX5FbmcVROMv2riOwyE" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
             <div class="editorial-grid">
