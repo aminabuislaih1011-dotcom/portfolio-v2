@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amin Abu Islaih — Strategic & Creative Portfolio</title>
 
     <!-- Google Fonts (Montserrat & Inter per il font da CV) -->
@@ -520,7 +520,7 @@
 
         .btn-contact:hover {
             background: var(--accent-gold);
-            color: #ffffff;
+            color: #000000;
         }
 
         footer {
@@ -556,7 +556,135 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+
+        /* =========================================
+           UI REFINEMENTS
+        ========================================= */
+        html { scroll-behavior: smooth; }
+        #about, #projects, #contact { scroll-margin-top: 70px; }
+        ::selection { background: var(--accent-gold); color: #000; }
+        a:focus-visible { outline: 2px solid var(--accent-gold); outline-offset: 3px; }
+
+        /* Hero: vignettatura per far risaltare il testo + CTA */
+        #home::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.85) 75%, #000 100%);
+            z-index: 1;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-top: 2.2rem;
+        }
+        .hero-actions .btn-contact, .contact-actions .btn-contact { margin-top: 0; }
+
+        .btn-ghost {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid var(--border-hover);
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        .btn-ghost:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+        /* Card About */
+        .horizontal-card { transition: var(--transition); }
+        .horizontal-card:hover { border-color: var(--border-hover); transform: translateY(-4px); }
+
+        /* Banner citazioni: filetto oro */
+        .parallax-mood-overlay::before {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-gold);
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Fix doppia linea sotto "Selected Works" (:first-of-type non funzionava) */
+        .section-header + .agency-block { margin-top: 0; border-top: none; padding-top: 0; }
+
+        /* Header agenzia: nome + ruolo come badge */
+        .agency-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.6rem 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .agency-name { line-height: 1.1; }
+        .agency-intro {
+            margin-bottom: 0;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-gold);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        /* Card progetto: hover */
+        .project-card { transition: border-color 0.4s ease, transform 0.4s ease; }
+        .project-card:hover { border-color: var(--border-hover); transform: translateY(-4px); }
+        .project-img img { transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease; }
+        .project-card:hover .project-img img { transform: scale(1.04); filter: grayscale(0%); }
+        .metric-value { color: var(--accent-gold); }
+
+        /* Banner riepilogo: divisori tra le colonne */
+        .agency-summary-banner > div + div {
+            border-top: 1px solid var(--border-editorial);
+            padding-top: 1.2rem;
+        }
+
+        /* Contatti */
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-top: 1.8rem;
+        }
+
+        @media (min-width: 768px) {
+            .agency-summary-banner > div + div {
+                border-top: none;
+                padding-top: 0;
+                border-left: 1px solid var(--border-editorial);
+                padding-left: 1.5rem;
+            }
+            .contact-box { padding: 4rem 2rem; }
+        }
+
+        /* Nav su schermi piccoli */
+        @media (max-width: 480px) {
+            .logo { font-size: 1rem; }
+            nav ul { gap: 0.9rem; }
+            nav a { font-size: 0.68rem; letter-spacing: 0.5px; }
+        }
+
+        /* Rispetto di "riduci animazioni" */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+            .reveal-on-scroll { opacity: 1; transform: none; }
+            html { scroll-behavior: auto; }
+        }
     </style>
+    <noscript><style>.reveal-on-scroll{opacity:1;transform:none}#preloader{display:none}</style></noscript>
 </head>
 <body>
 
@@ -590,6 +718,10 @@
             <span class="hero-tag">Selected Works 2026</span>
             <h1>Digital & Brand <i>Strategist</i></h1>
             <p>Crafting high-impact digital communication, brand identities, and scalable growth strategies for industry-leading clients.</p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn-contact">View Work</a>
+                <a href="Amin_Abu_Islaih_CV.pdf" class="btn-ghost" download>Download CV</a>
+            </div>
         </div>
     </section>
 
@@ -893,7 +1025,7 @@
                     </div>
                     <div class="project-content">
                         <div class="project-title">Vodafone Business</div>
-                        <div class="project-desc">Developing design guidelines, evening UX and Tone of Voice used on copies across every line of communication.</div>
+                        <div class="project-desc">Developing design guidelines, UX Writing and Tone of Voice used on copies across every line of communication.</div>
                         <div class="project-metrics">
                             <div class="metric-value">+9%</div>
                             <div class="metric-label">Email Conversion Rate</div>
@@ -927,7 +1059,7 @@
                 </div>
                 <div>
                     <div class="agency-summary-number">+9%</div>
-                    <div class="agency-summary-label">OR, CTOR e CR on email marketing</div>
+                    <div class="agency-summary-label">OR, CTOR and CR on email marketing</div>
                 </div>
             </div>
         </div>
@@ -996,7 +1128,11 @@
             <span class="section-tag">Let's connect</span>
             <h2 class="section-title">Ready to work together?</h2>
             <p style="color: var(--text-muted); margin-top: 1rem;">I am open to discussing new strategic opportunities and creative direction projects.</p>
-            <a href="mailto:amin.abuislaih1011@gmail.com" class="btn-contact">Get In Touch</a>
+            <div class="contact-actions">
+                <a href="mailto:amin.abuislaih1011@gmail.com" class="btn-contact">Get In Touch</a>
+                <a href="https://www.linkedin.com/in/amin-abu-islaih/" class="btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="Amin_Abu_Islaih_CV.pdf" class="btn-ghost" download>Download CV</a>
+            </div>
         </div>
     </section>
 
@@ -1007,11 +1143,9 @@
 
     <!-- SCRIPTS -->
     <script>
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('preloader').classList.add('loaded');
-            }, 800);
-        });
+        const hidePreloader = () => document.getElementById('preloader').classList.add('loaded');
+        window.addEventListener('load', () => setTimeout(hidePreloader, 600));
+        setTimeout(hidePreloader, 2500); // non blocca mai la pagina se il caricamento è lento
 
         const cursor = document.getElementById('custom-cursor');
         if (cursor && window.innerWidth > 992) {
@@ -1026,17 +1160,19 @@
         }
 
         const revealElements = document.querySelectorAll('.reveal-on-scroll');
-        const revealOnScroll = () => {
-            const windowHeight = window.innerHeight;
-            revealElements.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 50) {
-                    el.classList.add('is-visible');
-                }
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -50px 0px' });
+            revealElements.forEach(el => io.observe(el));
+        } else {
+            revealElements.forEach(el => el.classList.add('is-visible'));
+        }
     </script>
 </body>
 </html>
