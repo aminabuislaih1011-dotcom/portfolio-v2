@@ -533,18 +533,6 @@
 
         /* --- DESKTOP BREAKPOINTS --- */
         @media (min-width: 768px) {
-            .horizontal-scroll-container {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.5rem;
-                overflow-x: visible;
-            }
-
-            .horizontal-card {
-                flex: none;
-                max-width: 100%;
-            }
-
             .editorial-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -670,6 +658,21 @@
             .contact-box { padding: 4rem 2rem; }
         }
 
+        /* About: 5 card in riga sugli schermi grandi, carosello sotto */
+        @media (min-width: 1200px) {
+            .horizontal-scroll-container {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 1.2rem;
+                overflow-x: visible;
+            }
+            .horizontal-card { flex: none; max-width: 100%; padding: 1.8rem 1.4rem; }
+            .horizontal-card h3 { font-size: 1.05rem; }
+        }
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .horizontal-card { flex: 0 0 300px; }
+        }
+
         /* Nav su schermi piccoli */
         @media (max-width: 480px) {
             .logo { font-size: 1rem; }
@@ -730,18 +733,28 @@
         <div class="horizontal-scroll-container">
             <div class="horizontal-card">
                 <div class="horizontal-card-num">01.</div>
-                <h3>Social Media Management</h3>
-                <p>Strategic channel leadership, content creation, ADV performance campaigns aimed at fanbase building and community engagement.</p>
+                <h3>Digital Strategy</h3>
+                <p>Omnichannel strategies across owned, paid and earned media, brand positioning and storytelling frameworks that turn vision and mission into growth.</p>
             </div>
             <div class="horizontal-card">
                 <div class="horizontal-card-num">02.</div>
-                <h3>UX / UI & Content Strategy</h3>
-                <p>Design guidelines development, UX Writing, Benchmark Analysis, and omnichannel Tone of Voice definition for digital platforms.</p>
+                <h3>Performance Marketing &amp; ADV</h3>
+                <p>Meta and Google Ads campaigns for lead generation and conversion, budget allocation and continuous optimization of ROI and acquisition costs.</p>
             </div>
             <div class="horizontal-card">
                 <div class="horizontal-card-num">03.</div>
-                <h3>Brand Innovation & Identity</h3>
-                <p>Strategic brand positioning for competitive markets, Web3/NFT campaigns, internal communication plans, and digital funnels.</p>
+                <h3>CRM &amp; Marketing Automation</h3>
+                <p>Salesforce supervision, customer journey design, email marketing and lead nurturing flows that connect marketing to sales.</p>
+            </div>
+            <div class="horizontal-card">
+                <div class="horizontal-card-num">04.</div>
+                <h3>Data, Analytics &amp; Reporting</h3>
+                <p>KPI monitoring with GA4 and Looker Studio, dashboards, benchmarking and data-driven insights to guide business decisions.</p>
+            </div>
+            <div class="horizontal-card">
+                <div class="horizontal-card-num">05.</div>
+                <h3>Content, Social &amp; UX Writing</h3>
+                <p>Social media management, tone of voice, UX writing and SEO/SEM/GEO to build visibility, community and engagement.</p>
             </div>
         </div>
     </div>
